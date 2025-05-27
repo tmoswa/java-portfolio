@@ -1,351 +1,348 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timothy Moswa - Portfolio</title>
+    <meta name="description" content="Portfolio of Timothy Moswa, a Full-Stack Software Engineer specializing in Java (Spring, Spring Boot), Kotlin, React.js, and microservices.">
+    <meta name="keywords" content="Timothy Moswa, Software Engineer, Java, Spring Boot, Kotlin, React.js, Full-Stack Developer">
+    <meta name="author" content="Timothy Moswa">
+    <title>Timothy Moswa - Software Engineer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Dark mode toggle
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        }
+    </script>
 </head>
-<body class="bg-gray-50 text-gray-800">
-    <header class="bg-gray-700 text-white p-4 md:p-8 sticky top-0 z-50 shadow-md">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans">
+    <!-- Header -->
+    <header class="bg-gray-800 dark:bg-gray-700 text-white p-6 sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
             <!-- Profile Picture -->
             <a href="pic.jpg" target="_blank">
-                <img src="pic.jpg" alt="Timothy Moswa" class="w-16 h-16 md:w-24 md:h-24 rounded-full object-cover">
+                <img src="pic.jpg" alt="Timothy Moswa Profile Picture" class="w-20 h-20 md:w-28 md:h-28 rounded-full object-cover border-4 border-gray-300 dark:border-gray-600">
             </a>
-    
+
             <!-- Name and Bio -->
             <div class="text-center md:text-left mt-4 md:mt-0">
-                <h1 class="text-4xl font-bold">Timothy Moswa</h1>
-                <p class="mt-2 text-lg">Software Engineer | 7+ Years of Experience</p>
+                <h1 class="text-3xl md:text-4xl font-bold">Timothy Moswa</h1>
+                <p class="mt-2 text-lg">Full-Stack Software Engineer | 8+ Years of Experience</p>
+                <p class="mt-1 text-sm">Specializing in Java (Spring, Spring Boot), Kotlin, React.js</p>
             </div>
-    
-            <!-- Links -->
-            <div class="mt-4 md:mt-0 flex space-x-4">
-                <a href="mailto:timothymoswa@gmail.com" class="bg-red-500 px-4 py-2 rounded-full text-white hover:bg-red-600">
-                    Email Me
-                </a>
-                <a href="https://www.linkedin.com/in/timothy-moswa-b63944105/" target="_blank" class="bg-blue-500 px-4 py-2 rounded-full text-white hover:bg-blue-600">
-                    LinkedIn
-                </a>
+
+            <!-- Links and Theme Toggle -->
+            <div class="mt-4 md:mt-0 flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 items-center">
+                <a href="mailto:timothymoswa@gmail.com" class="bg-red-500 px-4 py-2 rounded-full text-white hover:bg-red-600 transition">Email Me</a>
+                <a href="https://www.linkedin.com/in/timothy-moswa-b63944105/" target="_blank" class="bg-blue-500 px-4 py-2 rounded-full text-white hover:bg-blue-600 transition">LinkedIn</a>
+                <!-- <button onclick="toggleTheme()" class="bg-gray-600 px-4 py-2 rounded-full text-white hover:bg-gray-500 transition">Toggle Theme</button> -->
             </div>
         </div>
     </header>
-    
 
-    <main class="container mx-auto my-8 px-4">
+    <!-- Navigation -->
+    <nav class="bg-gray-100 dark:bg-gray-800 p-4 shadow">
+        <div class="container mx-auto flex justify-center space-x-6">
+            <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">About</a>
+            <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Skills</a>
+            <a href="#tech-spotlight" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Tech Spotlight</a>
+            <a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Projects</a>
+            <a href="#work" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Work</a>
+            <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto my-12 px-4">
+        <!-- About Section -->
+        <section id="about" class="my-12">
+            <h2 class="text-3xl font-bold border-b-2 border-gray-700 dark:border-gray-400 pb-2">About Me</h2>
+            <p class="mt-4 text-lg leading-relaxed">
+                Results-driven Full-Stack Software Engineer with over 8 years of expertise in building scalable applications using <strong>Java (Spring, Spring Boot)</strong>, <strong>Kotlin</strong>, and <strong>React.js</strong>. Proficient in event-driven architectures with <strong>Apache Kafka</strong>, caching with <strong>Redis</strong>, and microservices deployment on <strong>AWS</strong> (EC2, S3, Lambda, EKS). Skilled in DevOps with <strong>Docker</strong>, <strong>Kubernetes</strong>, and CI/CD, I thrive in Agile/Scrum environments, delivering clean, maintainable code and mentoring teams.
+            </p>
+        </section>
+
         <!-- Skills Section -->
         <section id="skills" class="my-12">
-            <h2 class="text-2xl font-bold border-b-2 border-gray-700 pb-2">Technical Skills</h2>
-            <ul class="grid grid-cols-2 gap-4 mt-4 text-lg">
-                <li><strong>Languages:</strong> JavaScript, TypeScript, PHP & Python</li>
-                <li><strong>Frameworks:</strong> Node.js, Laravel, Django Express.js/Nest.js, React.js, Next.js,  </li>
-                <li><strong>Databases:</strong> MongoDB, MySQL, PostgreSQL, SQLite, Oracle</li>
-                <li><strong>Cloud Platforms:</strong> AWS (EC2, S3, Lambda, SNS ,SQS), Virtual Private Servers</li>
-                <li><strong>DevOps:</strong> Docker, Kubernetes, Jenkins, Microservices(Eureka, Consul)</li>
-                <li><strong>Other Tools:</strong> Jest, Prometheus, Grafana, PHPunit, Pytest</li>
-            </ul>
+            <h2 class="text-3xl font-bold border-b-2 border-gray-700 dark:border-gray-400 pb-2">Technical Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div>
+                    <h3 class="text-xl font-semibold">Languages</h3>
+                    <p class="mt-2">Java (SE & EE), Kotlin, Python, JavaScript, TypeScript, SQL, Shell</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold">Frameworks & Libraries</h3>
+                    <p class="mt-2">Spring Boot, Spring MVC, Hibernate, JPA, React.js, Next.js, Angular, Bootstrap, jQuery</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold">Databases</h3>
+                    <p class="mt-2">MySQL, PostgreSQL, Oracle, SQL Server, SQLite, MongoDB, Redis</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold">Cloud & DevOps</h3>
+                    <p class="mt-2">AWS (EC2, S3, Lambda, EKS, SNS, SQS, RDS), Docker, Kubernetes, Jenkins, GitHub Actions, SonarQube</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold">Messaging & APIs</h3>
+                    <p class="mt-2">Apache Kafka, RabbitMQ, RESTful APIs, JUnit, Mockito, Jest</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold">Tools & Methodologies</h3>
+                    <p class="mt-2">IntelliJ IDEA, VS Code, Postman, Git, Jira, Confluence, Agile (Scrum, Kanban), SOLID, Design Patterns</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Spotlight: Java -->
+        <section id="tech-spotlight" class="my-12">
+            <h2 class="text-3xl font-bold border-b-2 border-gray-700 dark:border-gray-400 pb-2">Tech Spotlight: Java & Spring Boot</h2>
+            <p class="mt-4 text-lg">
+                My expertise in <strong>Java</strong> includes building scalable microservices with <strong>Spring Boot</strong> and event-driven systems with <strong>Apache Kafka</strong>. Below is a sample REST API endpoint for a financial transaction service:
+            </p>
+            <pre class="bg-gray-800 text-white p-4 rounded-lg mt-4 overflow-x-auto">
+                <code>
+package com.timothymoswa.financeservice;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/transactions")
+public class TransactionController {
+
+    @Autowired
+    private TransactionService transactionService;
+    @Autowired
+    private KafkaTemplate<String, Transaction> kafkaTemplate;
+
+    @PostMapping
+    public Transaction createTransaction(@RequestBody Transaction transaction) {
+        Transaction savedTransaction = transactionService.save(transaction);
+        kafkaTemplate.send("transactions-topic", savedTransaction);
+        return savedTransaction;
+    }
+
+    @GetMapping("/{id}")
+    public Transaction getTransaction(@PathVariable Long id) {
+        return transactionService.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Transaction not found"));
+    }
+}
+                </code>
+            </pre>
+            <p class="mt-4 text-lg">
+                This endpoint uses <strong>Spring Boot</strong> for RESTful services and <strong>Kafka</strong> for event streaming, showcasing dependency injection and error handling.
+            </p>
         </section>
 
         <!-- Projects Section -->
         <section id="projects" class="my-12">
-            <h2 class="text-2xl font-bold border-b-2 border-gray-700 pb-2">Notable Projects</h2>
-            <div class="mt-4 space-y-8">
-                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold text-gray-800">Management Information System (M.I.S)<span class="text-sm">(Developed in 6 Years and "i" being the Lead Developer)</span></h3>
-                    <p class="text-gray-700 mt-2">
-                        A comprehensive system named <strong>"Daily Deep Dive"</strong>, designed to streamline the agricultural production lifecycle of tobacco. Built using a microservices architecture, the system efficiently integrates various technologies to support Farming, Auction Floors, Export, and Cigarette Production.
+            <h2 class="text-3xl font-bold border-b-2 border-gray-700 dark:border-gray-400 pb-2">Notable Projects</h2>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <button onclick="filterProjects('all')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">All</button>
+                <button onclick="filterProjects('Java')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Java</button>
+                <button onclick="filterProjects('Spring')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Spring</button>
+                <button onclick="filterProjects('Kotlin')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Kotlin</button>
+                <button onclick="filterProjects('React.js')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">React.js</button>
+            </div>
+            <div class="mt-6 space-y-8">
+                <!-- Financial Service Systems -->
+                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Java,Spring,React.js">
+                    <h3 class="text-xl font-bold">Financial Service Systems</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mt-2">
+                        A secure platform integrating with banking systems using <strong>Spring</strong> and <strong>React.js</strong>.
                     </p>
-                
-                    <div class="mt-4 space-y-4">
-                        <!-- Farming Module -->
-                        <div>
-                            <h4 class="text-lg font-semibold text-gray-800">Farming Module</h4>
-                            <ul class="list-disc list-inside text-gray-700 mt-2">
-                                <li>Frontend: <span class="font-medium">Flutter</span> for mobile-first real-time data collection.</li>
-                                <li>Backend: <span class="font-medium">Python</span> for predictive analytics (e.g., crop yield, pest detection).</li>
-                                <li>APIs: <span class="font-medium">REST APIs</span> for communication between farmers and backend systems.</li>
-                                <li>Database: <span class="font-medium">PostgreSQL</span> for structured relational data storage.</li>
-                                <li>Data Warehousing: Aggregated data for analytics and real-time insights.</li>
-                            </ul>
-                        </div>
-                
-                        <!-- Auction Floors Module -->
-                        <div>
-                            <h4 class="text-lg font-semibold text-gray-800">Auction Floors Module</h4>
-                            <ul class="list-disc list-inside text-gray-700 mt-2">
-                                <li>Frontend: <span class="font-medium">Next.js</span> for interactive bidding platforms.</li>
-                                <li>Backend: <span class="font-medium">Node.js</span> microservices to handle bidding and transactions.</li>
-                                <li>APIs:
-                                    <ul class="list-disc ml-6">
-                                        <li><span class="font-medium">REST API</span>: For real-time bidding and updates.</li>
-                                        <li><span class="font-medium">SOAP API</span>: For Government legacy system compatibility.</li>
-                                    </ul>
-                                </li>
-                                <li>Database: <span class="font-medium">MySQL</span> for bid transactions and payment records, using <span class="font-medium">Sequelize ORM</span> for streamlined operations.</li>
-                                <li>Monitoring: 
-                                    <ul class="list-disc ml-6">
-                                        <li><span class="font-medium">Prometheus</span>: Tracks bidding activity and server performance.</li>
-                                        <li><span class="font-medium">Grafana</span>: Visualizes metrics like active bids and uptime.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                
-                        <!-- Export and Cigarette Production Module -->
-                        <div>
-                            <h4 class="text-lg font-semibold text-gray-800">Export and Cigarette Production Module</h4>
-                            <ul class="list-disc list-inside text-gray-700 mt-2">
-                                <li>Frontend: <span class="font-medium">Next.js</span> for logistics tracking and production dashboards.</li>
-                                <li>Backend: <span class="font-medium">Node.js</span> microservices for scheduling and quality control.</li>
-                                <li>APIs: <span class="font-medium">REST APIs</span> for inventory management and shipment tracking.</li>
-                                <li>Database:
-                                    <ul class="list-disc ml-6">
-                                        <li><span class="font-medium">MongoDB</span>: Stores unstructured shipment logs and production data.</li>
-                                    </ul>
-                                </li>
-                                <li>Reports: Data warehousing for detailed production and export summaries.</li>
-                            </ul>
-                        </div>
+                    <ul class="list-disc list-inside mt-2">
+                        <li><strong>Frontend</strong>: React.js with Next.js, Tailwind CSS, JWT.</li>
+                        <li><strong>Backend</strong>: Spring Boot microservices, Hibernate/JPA, PostgreSQL, Kafka for events.</li>
+                        <li><strong>Impact</strong>: Enhanced transaction processing and user experience.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Code (Request Access)</a>
                     </div>
-                
-                    <!-- Infrastructure and Deployment -->
-                    <div class="mt-6">
-                        <h4 class="text-lg font-semibold text-gray-800">Infrastructure and Deployment</h4>
-                        <ul class="list-disc list-inside text-gray-700 mt-2">
-                            <li><span class="font-medium">Docker:</span> Containerized microservices for consistent deployment.</li>
-                            <li><span class="font-medium">AWS Kubernetes (EKS):</span> Manages containers, scales resources dynamically.</li>
-                            <li><span class="font-medium">AWS Services:</span>
-                                <ul class="list-disc ml-6">
-                                    <li><span class="font-medium">EC2:</span> Hosts microservices for high availability.</li>
-                                    <li><span class="font-medium">S3:</span> Stores backups, logs, and static assets.</li>
-                                    <li><span class="font-medium">Lambda:</span> Handles serverless tasks like notifications.</li>
-                                    <li><span class="font-medium">SNS:</span> Sends alerts for events such as auction results.</li>
-                                    <li><span class="font-medium">SQS:</span> Ensures reliable messaging between services.</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                
-                    <!-- Monitoring and Impact -->
-                    <div class="mt-6">
-                        <h4 class="text-lg font-semibold text-gray-800">Monitoring and Impact</h4>
-                        <ul class="list-disc list-inside text-gray-700 mt-2">
-                            <li><span class="font-medium">Prometheus:</span> Tracks API response times and server health.</li>
-                            <li><span class="font-medium">Grafana:</span> Visualizes system metrics across all modules.</li>
-                            <li><span class="font-medium">Sentry:</span> Monitors and resolves application errors efficiently.</li>
-                        </ul>
-                    </div>
-                
-                    <p class="text-gray-700 mt-4">
-                        <strong>Impact:</strong> Streamlined operations across farming, auction floors, and production, improving efficiency by 40%, reducing shipment delays by 30%, and providing actionable insights through real-time dashboards.
-                    </p>
-                </div>
-                
-                <div class="mt-4 space-y-8">
-                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold text-gray-800">Financial Service System <span class="text-sm">(Developed as Lead Developer)</span></h3>
-                        <p class="text-gray-700 mt-2">
-                            A robust financial service system designed to integrate with Zimbabwe's banking infrastructure, enabling seamless transactions and data management. The platform leverages cutting-edge technologies, including Next.js for frontend development, Plaid for banking data aggregation, and Java-based microservices for secure backend integration. The system is hosted on a Virtual Private Server (VPS) to ensure reliable performance and security.
-                        </p>
-                
-                        <div class="mt-4 space-y-4">
-                            <!-- Frontend Architecture -->
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800">Frontend Architecture</h4>
-                                <ul class="list-disc list-inside text-gray-700 mt-2">
-                                    <li>Frontend: <span class="font-medium">Next.js</span> for building fast and dynamic user interfaces with server-side rendering and static site generation.</li>
-                                    <li>UI Design: <span class="font-medium">Tailwind CSS</span> for rapid styling and a responsive layout.</li>
-                                    <li>State Management: <span class="font-medium">React Context API</span> for handling global state across the application.</li>
-                                    <li>Authentication: <span class="font-medium">JWT Authentication</span> for secure user login and data protection.</li>
-                                </ul>
-                            </div>
-                
-                            <!-- Backend Architecture -->
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800">Backend Architecture</h4>
-                                <ul class="list-disc list-inside text-gray-700 mt-2">
-                                    <li>Backend: <span class="font-medium">Java Microservices</span> for modularity and scalability, ensuring ease of maintenance and flexibility.</li>
-                                    <li>Data Aggregation: <span class="font-medium">Plaid API</span> to securely link bank accounts and fetch transactional data.</li>
-                                    <li>API Integration: 
-                                        <ul class="list-disc ml-6">
-                                            <li><span class="font-medium">SOAP API</span>: Used for legacy integration with the Zimbabwean banking system.</li>
-                                            <li><span class="font-medium">REST API</span>: For secure communication between frontend and backend services.</li>
-                                        </ul>
-                                    </li>
-                                    <li>Database: <span class="font-medium">PostgreSQL</span> for transactional and relational data storage.</li>
-                                </ul>
-                            </div>
-                
-                            <!-- Storage and File Handling -->
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800">Storage and File Handling</h4>
-                                <ul class="list-disc list-inside text-gray-700 mt-2">
-                                    <li>Storage: <span class="font-medium">Appwrite</span> for scalable storage solutions, handling user files, and documents securely.</li>
-                                </ul>
-                            </div>
-                        </div>
-                
-                        <!-- Infrastructure and Deployment -->
-                        <div class="mt-6">
-                            <h4 class="text-lg font-semibold text-gray-800">Infrastructure and Deployment</h4>
-                            <ul class="list-disc list-inside text-gray-700 mt-2">
-                                <li><span class="font-medium">VPS Hosting:</span> The system is hosted on a Virtual Private Server for high availability, custom configurations, and cost-effectiveness.</li>
-                                <li><span class="font-medium">Docker:</span> Containerized microservices for consistent and reproducible environments.</li>
-                                <li><span class="font-medium">CI/CD:</span> Implemented Continuous Integration/Continuous Deployment pipelines using GitHub Actions for automated testing and deployment.</li>
-                            </ul>
-                        </div>
-                
-                        <!-- Monitoring and Error Handling -->
-                        <div class="mt-6">
-                            <h4 class="text-lg font-semibold text-gray-800">Monitoring and Error Handling</h4>
-                            <ul class="list-disc list-inside text-gray-700 mt-2">
-                                <li><span class="font-medium">Sentry:</span> Integrated for real-time error tracking and automated issue resolution, ensuring a seamless user experience.</li>
-                                <li><span class="font-medium">Logging:</span> Implemented centralized logging with <span class="font-medium">Logstash</span> and <span class="font-medium">Elasticsearch</span> for efficient monitoring.</li>
-                                <li><span class="font-medium">Health Monitoring:</span> System health and performance tracked using custom monitoring dashboards.</li>
-                            </ul>
-                        </div>
-                
-                        <!-- Security Features -->
-                        <div class="mt-6">
-                            <h4 class="text-lg font-semibold text-gray-800">Security Features</h4>
-                            <ul class="list-disc list-inside text-gray-700 mt-2">
-                                <li><span class="font-medium">Data Encryption:</span> All sensitive data is encrypted at rest and during transit using AES and TLS protocols.</li>
-                                <li><span class="font-medium">OAuth2 Authentication:</span> Provides secure user access management with support for third-party login integrations.</li>
-                                <li><span class="font-medium">Role-Based Access Control (RBAC):</span> Ensures only authorized users have access to specific system features and sensitive data.</li>
-                            </ul>
-                        </div>
-                
-                        <p class="text-gray-700 mt-4">
-                            <strong>Impact:</strong> The platform enables efficient financial data management, providing users with real-time access to their loan disbursements, while securely integrating with legacy banking systems(few selected). Enhanced user experience, improved financial data accuracy, and simplified banking processes have led to greater customer satisfaction and system reliability.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="mt-4 space-y-8">
-                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold text-gray-800">IT Audit System</h3>
-                        <p class="text-gray-700 mt-2">Developed a comprehensive compliance monitoring tool for tracking internal system calls, ticket response times, and ensuring adherence to operational standards. The system leverages an API-driven architecture to collect and analyze data in real time, providing insights into the performance and responsiveness of internal IT operations.</p>
-                
-                        <div class="mt-4 space-y-4">
-                            <!-- System Architecture -->
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800">System Architecture</h4>
-                                <ul class="list-disc list-inside text-gray-700 mt-2">
-                                    <li>Frontend: <span class="font-medium">ReactJS</span> to build an interactive and responsive user interface that communicates with backend services.</li>
-                                    <li>Backend: <span class="font-medium">Laravel</span> to handle business logic, data processing, and secure API interactions.</li>
-                                    <li>Database: <span class="font-medium">MySQL</span> used for storing system logs, ticket data, response times, and compliance records.</li>
-                                    <li>API Integration: <span class="font-medium">Internal System API</span> provides the data necessary for the audit process, fetching system calls and ticket-related information in real-time.</li>
-                                    <li>Real-Time Monitoring: Integrated tools that continuously monitor API calls, analyze ticket response times, and track KPIs related to system performance.</li>
-                                </ul>
-                            </div>
-                
-                            <!-- Deployment and Environment Management -->
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800">Deployment and Environment Management</h4>
-                                <ul class="list-disc list-inside text-gray-700 mt-2">
-                                    <li><span class="font-medium">Laravel Forge:</span> Utilized for seamless deployment and management of Laravel applications. Ensures smooth deployment of both staging and production environments.</li>
-                                    <li><span class="font-medium">VPS Hosting:</span> The system is deployed on a <span class="font-medium">Virtual Private Server (VPS)</span>, providing full control over server configurations and optimal performance for the application.</li>
-                                    <li>Environment Setup: The application is structured into three distinct environments:
-                                        <ul class="list-disc ml-6">
-                                            <li><span class="font-medium">Development:</span> Dedicated environment for feature development, testing, and debugging.</li>
-                                            <li><span class="font-medium">Staging:</span> Pre-production environment for QA and user acceptance testing (UAT) to simulate the live system with actual data.</li>
-                                            <li><span class="font-medium">Production:</span> Live environment for end-users, ensuring the stability, scalability, and security of the system.</li>
-                                        </ul>
-                                    </li>
-                                    <li><span class="font-medium">CI/CD Pipeline:</span> Continuous Integration and Deployment set up using GitHub Actions to automate testing, building, and deployment processes across all environments.</li>
-                                </ul>
-                            </div>
-                
-                            <!-- Real-Time Data Analytics -->
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800">Real-Time Data Analytics</h4>
-                                <ul class="list-disc list-inside text-gray-700 mt-2">
-                                    <li><span class="font-medium">Ticket Response Time Analysis:</span> The system analyzes response times of support tickets, highlighting delays and ensuring that internal service level agreements (SLAs) are met.</li>
-                                    <li><span class="font-medium">System Calls Monitoring:</span> API calls are monitored in real-time to detect any anomalies, ensuring optimal performance and identifying areas for improvement.</li>
-                                    <li><span class="font-medium">Octagonal Presentation:</span> The system displays data using a visually appealing octagonal presentation style similar to <a href="https://www.dienstenlandkaart.nl/" target="_blank" class="text-blue-600">Dienstenlandkaart</a>, making it easy to understand complex data at a glance. This visual model helps track performance metrics and system health in a user-friendly way.</li>
-                                </ul>
-                            </div>
-                
-                            <!-- Security Features -->
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800">Security Features</h4>
-                                <ul class="list-disc list-inside text-gray-700 mt-2">
-                                    <li><span class="font-medium">Role-Based Access Control (RBAC):</span> Ensures that only authorized users can access sensitive audit data and system logs, with granular permissions based on user roles.</li>
-                                    <li><span class="font-medium">Data Encryption:</span> All sensitive data stored in the database is encrypted using advanced encryption standards to prevent unauthorized access, OAuth2, JWT etc.</li>
-                                    <li><span class="font-medium">Secure API Communication:</span> API calls are secured using OAuth2 authentication and encrypted with TLS, ensuring safe data exchange between the frontend and backend systems.</li>
-                                </ul>
-                            </div>
-                
-                            <!-- System Access -->
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800">System Access</h4>
-                                <p class="text-gray-700 mt-2">The actual system can be accessed via <a href="https://portal.dienstenlandkaart.nl/#/signin" target="_blank" class="text-blue-600">this portal</a> where authorized users can log in to view detailed reports, ticket analytics, and system performance data.</p>
-                            </div>
-                
-                        </div>
-                
-                        <!-- Attached Image -->
-                        <div class="mt-6">
-                            <h4 class="text-lg font-semibold text-gray-800">Visual Representation</h4>
-                            <img src="portal_img.png" alt="IT Audit System" class="rounded-lg shadow-lg mt-4 w-full max-w-lg mx-auto">
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-xl font-bold">Sales and Logistics System</h3>
-                    <p class="text-gray-700">Implemented an inventory and route optimization system using Python(Django)+Next.js.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold">HR Systems</h3>
-                    <p class="text-gray-700">Created a GDPR-compliant HR management platform with MongoDB and Docker.</p>
                 </div>
 
-                <div class="text-red-300 grid grid-cols-2">
-                    <div class="col-span-1">&nbsp;</div>
-                    <div class="col-span-1">
-                    <h4 class="text-lg font-bold">Note:</h4>
-                    <p class=" text-wrap">All these systems are mostly internal (both codebase and sites)owned by their respective organisations and links to the sites will be availed per request and subject to approval.</p>
+                <!-- Pastel Integrations -->
+                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Java,Spring">
+                    <h3 class="text-xl font-bold">Pastel Integrations</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mt-2">
+                        Integrated accounting software with external systems using <strong>Spring Boot</strong>.
+                    </p>
+                    <ul class="list-disc list-inside mt-2">
+                        <li><strong>Tech Stack</strong>: Spring Boot, REST APIs, MySQL, RabbitMQ.</li>
+                        <li><strong>Features</strong>: Real-time data syncing, automated reporting.</li>
+                        <li><strong>Deployment</strong>: Docker, AWS EC2.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Code (Request Access)</a>
+                    </div>
+                </div>
+
+                <!-- T24 Integrations -->
+                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Java,Spring">
+                    <h3 class="text-xl font-bold">T24</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mt-2">
+                        Developed integrations for a core banking system using <strong>Spring</strong>.
+                    </p>
+                    <ul class="list-disc list-inside mt-2">
+                        <li><strong>Tech Stack</strong>: Spring MVC, JPA, Oracle, SOAP APIs.</li>
+                        <li><strong>Features</strong>: Transaction processing, compliance reporting.</li>
+                        <li><strong>Impact</strong>: Streamlined banking operations.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Code (Request Access)</a>
+                    </div>
+                </div>
+
+                <!-- HR Systems -->
+                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Java,Spring,React.js">
+                    <h3 class="text-xl font-bold">HR Systems</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mt-2">
+                        A human resource management system built with <strong>Spring Boot</strong> and <strong>React.js</strong>.
+                    </p>
+                    <ul class="list-disc list-inside mt-2">
+                        <li><strong>Tech Stack</strong>: Spring Boot, Hibernate, React.js, PostgreSQL.</li>
+                        <li><strong>Features</strong>: Employee onboarding, payroll integration.</li>
+                        <li><strong>Deployment</strong>: Kubernetes, AWS EKS.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Code (Request Access)</a>
+                    </div>
+                </div>
+
+                <!-- E-Healthy Systems -->
+                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Java,Kotlin">
+                    <h3 class="text-xl font-bold">E-Healthy Systems</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mt-2">
+                        A medical imaging platform with <strong>Kotlin</strong>-based Flutter apps and <strong>Java backend</strong>.
+                    </p>
+                    <ul class="list-disc list-inside mt-2">
+                        <li><strong>Tech Stack</strong>: Spring Boot, Kotlin (Flutter), MongoDB, Redis for real-time data.</li>
+                        <li><strong>Features</strong>: Real-time diagnostics, mobile app UI.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Code (Request Access)</a>
+                    </div>
+                </div>
+
+                <!-- M.I.S. -->
+                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Java,Spring,React.js">
+                    <h3 class="text-xl font-bold">Management Information System</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mt-2">
+                        A microservices-based system for tobacco production using <strong>Spring</strong> and <strong>React.js</strong>.
+                    </p>
+                    <ul class="list-disc list-inside mt-2">
+                        <li><strong>Farming Module</strong>: Flutter (Kotlin), Spring Boot backend, PostgreSQL.</li>
+                        <li><strong>Auction Floors</strong>: React.js frontend, Spring microservices, MySQL.</li>
+                        <li><strong>Export & Production</strong>: Next.js dashboards, MongoDB, Kafka for events.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Code (Request Access)</a>
+                    </div>
+                </div>
+
+                <!-- IT Audit System -->
+                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Java,Spring,React.js">
+                    <h3 class="text-xl font-bold">IT Audit System</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mt-2">
+                        A compliance monitoring tool built with <strong>Spring</strong> and <strong>React.js</strong>.
+                    </p>
+                    <ul class="list-disc list-inside mt-2">
+                        <li><strong>Tech Stack</strong>: Spring Boot, React.js, MySQL, OAuth2.</li>
+                        <li><strong>Features</strong>: Real-time analytics, ticket tracking.</li>
+                        <li><strong>Deployment</strong>: Docker, AWS EKS, EKS.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="https://portal.diensten.nl/#/signin" class="text-blue-600 dark:text-blue-400 hover:underline">View Portal</a>
+                    </div>
+                </div>
+
+                <!-- Sales and Logistics System -->
+                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Java,Spring">
+                    <h3 class="text-xl font-bold">Sales and Logistics System</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mt-2">
+                        An inventory and route optimization system built with <strong>Spring Boot</strong>.
+                    </p>
+                    <ul class="list-disc list-inside mt-2">
+                        <li><strong>Tech Stack</strong>: Spring Boot, Hibernate, PostgreSQL, Redis for caching.</li>
+                        <li><strong>Features</strong>: Smart inventory, route optimization.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Code (Request Access)</a>
+                    </div>
+                </div>
+
+                <!-- Websites & Mobile Apps -->
+                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Kotlin,React.js">
+                    <h3 class="text-xl font-bold">Websites & Mobile Apps</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mt-2">
+                        Developed responsive websites and mobile applications using <strong>Kotlin</strong> (Flutter) and <strong>React.js</strong>.
+                    </p>
+                    <ul class="list-disc list-inside mt-2">
+                        <li><strong>Tech Stack</strong>: React.js, Next.js, Flutter (Kotlin/Swift), PostgreSQL.</li>
+                        <li><strong>Features</strong>: Cross-platform apps, SEO optimization.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Code (Request Access)</a>
                     </div>
                 </div>
             </div>
+            <p class="text-red-500 dark:text-red-400 mt-4 text-sm">
+                Note: Most systems are internal, and access to code or live demos is subject to organizational approval.
+            </p>
         </section>
 
         <!-- Work Experience -->
         <section id="work" class="my-12">
-            <h2 class="text-2xl font-bold border-b-2 border-gray-700 pb-2">Work Experience</h2>
-            <ul class="space-y-4 mt-4">
+            <h2 class="text-3xl font-bold border-b-2 border-gray-700 dark:border-gray-400 pb-2">Work Experience</h2>
+            <ul class="space-y-6 mt-6">
                 <li>
-                    <strong>Web Developer</strong> - Staxo Group (UK) | 2024 – Present  
-                    <p class="text-gray-700">Backend/frontend development, deployment, and code reviews.</p>
+                    <strong>Web Developer</strong> - Staxo Group (UK) | 2024 – Present
+                    <p class="text-gray-700 dark:text-gray-300">Developed backend and frontend solutions using <strong>Spring Boot</strong>, <strong>React.js</strong>, and <strong>Kotlin</strong>, focusing on API integrations and deployments.</p>
                 </li>
                 <li>
-                    <strong>Software Engineer</strong> - Dienstenlandkaart (Netherlands) | 2019 – 2024  
-                    <p class="text-gray-700">Developed integration platforms and improved UI/UX.</p>
-                </li>
-
-                <li>
-                    <strong>Software Engineer</strong> - Zark Zimbabwe | 2018 – 2024  
-                    <p class="text-gray-700">Migrated legacy systems and optimized performance.</p>
+                    <strong>Software Engineer</strong> - Dienstenlandkaart (Netherlands) | 2018 – 2024
+                    <p class="text-gray-700 dark:text-gray-300">Built integration platforms with <strong>Spring</strong>, <strong>React.js</strong>, improving microservices and UI/UX.</p>
                 </li>
                 <li>
-                    <strong>Lead Software Engineer</strong> - Inclusive Financial Services (Zimbabwe) | 2017 – 2018  
-                    <p class="text-gray-700">Led team evaluations and API development.</p>
+                    <strong>Lead Software Engineer</strong> - Inclusive Financial Services (Zimbabwe) | 2017 – 2018
+                    <p class="text-gray-700 dark:text-gray-300">Led API development with <strong>Spring Boot</strong>, coordinated deployments, and updated legacy systems.</p>
+                </li>
+                <li>
+                    <strong>ICT Intern</strong> - Civil Aviation Authority of Zimbabwe | 2014 – 2016
+                    <p class="text-gray-700 dark:text-gray-300">Developed software using <strong>Java</strong> and <strong>JavaScript</strong>, managed databases, and provided system support.</p>
                 </li>
             </ul>
         </section>
 
         <!-- Contact -->
         <section id="contact" class="my-12">
-            <h2 class="text-2xl font-bold border-b-2 border-gray-700 pb-2">Contact Me</h2>
-            <p>Email: <a href="mailto:timothymoswa@gmail.com" class="text-blue-600 hover:underline">timothymoswa@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/timothy-moswa-b63944105/" target="_blank" class="text-blue-600 hover:underline">Timothy Moswa</a></p>
+            <h2 class="text-3xl font-bold border-b-2 border-gray-700 dark:border-gray-400 pb-2">Contact Me</h2>
+            <p class="mt-4">Email: <a href="mailto:timothymoswa@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline">timothymoswa@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/timothy-moswa-b63944105/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Timothy Moswa</a></p>
+            <p>GitHub: <a href="https://github.com/tmoswa" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">github.com/tmoswa</a></p>
         </section>
     </main>
 
-    <footer class="bg-gray-800 text-white text-center p-4">
-        © 2024 Timothy Moswa. All rights reserved.
+    <!-- Footer -->
+    <footer class="bg-gray-800 dark:bg-gray-700 text-white text-center p-4">
+        © 2025 Timothy Moswa. All rights reserved.
     </footer>
+
+    <!-- JavaScript for Project Filtering -->
+    <script>
+        function filterProjects(tag) {
+            const projects = document.querySelectorAll('.project');
+            projects.forEach(project => {
+                const tags = project.getAttribute('data-tags').split(',');
+                project.style.display = tag === 'all' || tags.includes(tag) ? 'block' : 'none';
+            });
+        }
+    </script>
 </body>
 </html>
