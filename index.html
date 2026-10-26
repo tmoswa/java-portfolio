@@ -3,313 +3,335 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Timothy Moswa, a Senior Java Engineer specializing in Spring Boot, Apache Kafka, Docker, Kubernetes, ReactJS, and Core Banking integrations with ISO 8583.">
-    <meta name="keywords" content="Timothy Moswa, Senior Java Engineer, Spring Boot, Apache Kafka, Docker, Kubernetes, ReactJS, ISO 8583, Paynow, Stripe, Full-Stack Developer">
+    <meta name="description" content="Portfolio of Timothy Moswa, a senior Java and Spring Boot engineer building card switching, digital lending, core banking integration and payment integrations for regulated financial systems.">
+    <meta name="keywords" content="Timothy Moswa, Senior Software Engineer, Java, Spring Boot, ISO 8583, ISO 20022, core banking, digital lending, open banking, PSD2, Stripe, GoCardless, Kubernetes, AWS">
     <meta name="author" content="Timothy Moswa">
-    <title>Timothy Moswa - Senior Java Engineer Portfolio</title>
+    <title>Timothy Moswa · Senior Software Engineer · Java, Payments & Core Banking</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // Dark mode toggle
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
+        tailwind.config = { darkMode: 'class' };
+    </script>
+    <script>
+        // Theme: follow the saved choice, else the device setting
+        try {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        } catch (e) {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            }
         }
         function toggleTheme() {
             document.documentElement.classList.toggle('dark');
-            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            try {
+                localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            } catch (e) { /* storage unavailable: theme lasts for this visit */ }
         }
     </script>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans">
     <!-- Header -->
-    <header class="bg-gray-800 dark:bg-gray-700 text-white p-6 sticky top-0 z-50 shadow-lg">
-        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
-            <!-- Profile Picture -->
-            <a href="pic.jpg" target="_blank">
-                <img src="pic.jpg" alt="Timothy Moswa Profile Picture" class="w-20 h-20 md:w-28 md:h-28 rounded-full object-cover border-4 border-gray-300 dark:border-gray-600">
-            </a>
-            <!-- Name and Bio -->
-            <div class="text-center md:text-left mt-4 md:mt-0">
-                <h1 class="text-3xl md:text-4xl font-bold">Timothy Moswa</h1>
-                <p class="mt-2 text-lg">Senior Java Engineer | Core Banking & FinTech</p>
-                <p class="mt-1 text-sm">Specializing in Spring Boot, Apache Kafka, Docker, Kubernetes, ReactJS, ISO 8583</p>
+    <header class="bg-gray-800 dark:bg-gray-950 text-white p-6 shadow-lg">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex flex-col md:flex-row items-center gap-5">
+                <a href="pic.jpg" target="_blank">
+                    <img src="pic.jpg" alt="Timothy Moswa" class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-4 border-gray-300 dark:border-gray-600">
+                </a>
+                <div class="text-center md:text-left">
+                    <h1 class="text-3xl md:text-4xl font-bold">Timothy Moswa</h1>
+                    <p class="mt-2 text-lg">Senior Software Engineer · Java / Spring Boot</p>
+                    <p class="mt-1 text-sm text-gray-300">Payments, Lending &amp; Core Banking · Harare, Zimbabwe</p>
+                </div>
             </div>
-            <!-- Links and Theme Toggle -->
-            <div class="mt-4 md:mt-0 flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 items-center">
-                <a href="mailto:timothymoswa@gmail.com" class="bg-red-500 px-4 py-2 rounded-full text-white hover:bg-red-600 transition">Email Me</a>
-                <a href="https://www.linkedin.com/in/timothy-moswa-b63944105/" target="_blank" class="bg-blue-500 px-4 py-2 rounded-full text-white hover:bg-blue-600 transition">LinkedIn</a>
-                <a href="https://github.com/tmoswa" target="_blank" class="bg-gray-600 px-4 py-2 rounded-full text-white hover:bg-gray-500 transition">GitHub</a>
-                <button onclick="toggleTheme()" class="bg-gray-600 px-4 py-2 rounded-full text-white hover:bg-gray-500 transition">Toggle Theme</button>
+            <div class="flex flex-wrap justify-center gap-2 md:gap-3">
+                <a href="mailto:timothymoswa@gmail.com" class="bg-red-600 px-4 py-2 rounded-full text-white hover:bg-red-700 transition">Email</a>
+                <a href="https://www.linkedin.com/in/timothy-moswa-b63944105/" target="_blank" rel="noopener" class="bg-blue-600 px-4 py-2 rounded-full text-white hover:bg-blue-700 transition">LinkedIn</a>
+                <a href="https://github.com/tmoswa" target="_blank" rel="noopener" class="bg-gray-600 px-4 py-2 rounded-full text-white hover:bg-gray-500 transition">GitHub</a>
+                <button type="button" onclick="toggleTheme()" aria-label="Switch between light and dark theme" class="bg-gray-600 px-4 py-2 rounded-full text-white hover:bg-gray-500 transition">Theme</button>
             </div>
         </div>
     </header>
 
     <!-- Navigation -->
-    <nav class="bg-gray-100 dark:bg-gray-800 p-4 shadow">
-        <div class="container mx-auto flex justify-center space-x-6">
+    <nav class="bg-gray-100 dark:bg-gray-800 p-4 shadow sticky top-0 z-50">
+        <div class="container mx-auto flex flex-wrap justify-center gap-x-6 gap-y-2">
             <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">About</a>
             <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Skills</a>
-            <a href="#tech-spotlight" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Tech Spotlight</a>
+            <a href="#experience" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Experience</a>
             <a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Projects</a>
-            <a href="#work" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Work</a>
+            <a href="#code" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Code</a>
             <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="container mx-auto my-12 px-4">
-        <!-- About Section -->
-        <section id="about" class="my-12">
-            <h2 class="text-3xl font-bold border-b-2 border-gray-700 dark:border-gray-400 pb-2">About Me</h2>
+    <main class="container mx-auto my-12 px-4 max-w-5xl">
+        <!-- About -->
+        <section id="about" class="my-12 scroll-mt-20">
+            <h2 class="text-3xl font-bold border-b-2 border-gray-700 dark:border-gray-400 pb-2">About</h2>
             <p class="mt-4 text-lg leading-relaxed">
-                Senior Java Software Engineer with 8+ years of experience architecting enterprise-grade systems in FinTech and banking. I specialize in <strong>Java (Spring Boot)</strong>, <strong>Apache Kafka</strong>, and <strong>microservices</strong>, with expertise in secure payment integrations using <strong>ISO 8583</strong>, <strong>Paynow</strong>, and <strong>Stripe</strong>. Proficient in <strong>ReactJS</strong> for admin UIs and <strong>DevOps</strong> with <strong>Docker</strong>, <strong>Kubernetes</strong>, and <strong>AWS</strong>. I deliver clean, scalable code in Agile environments, with a focus on CI/CD and observability using <strong>Prometheus</strong> and <strong>Grafana</strong>. Currently learning <strong>ISO 20022</strong> to stay ahead in payment standards.
+                Senior backend engineer with nine years on regulated financial systems, now second-in-charge of the ICT Systems Development section at a national retail bank. I build and run the <strong>Java / Spring Boot</strong> services on its money-movement paths: <strong>ISO 8583</strong> card switching and <strong>ISO 20022</strong> payment messaging, digital lending from origination to disbursement, core banking postings and scheduled funds movement.
+            </p>
+            <p class="mt-4 text-lg leading-relaxed">
+                Before and alongside the bank, I built payment and enterprise integrations for Dutch and UK companies: <strong>Stripe</strong> and <strong>GoCardless</strong>, ABN AMRO's <strong>PSD2</strong> open-banking APIs, <strong>SAP</strong>, <strong>Microsoft Dynamics 365</strong> and <strong>Sage</strong>, shipped as microservices on <strong>Kubernetes</strong> on <strong>AWS</strong>.
+            </p>
+            <p class="mt-4 text-lg leading-relaxed">
+                I'm strongest at the diagnostic end — finding the defects that survive years in production — and at AI-assisted engineering held to the same controls as payments code: every AI-drafted line reviewed and owned before it merges.
             </p>
         </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="my-12">
-            <h2 class="text-3xl font-bold border-b-2 border-gray-700 dark:border-gray-400 pb-2">Technical Skills</h2>
+        <!-- Skills -->
+        <section id="skills" class="my-12 scroll-mt-20">
+            <h2 class="text-3xl font-bold border-b-2 border-gray-700 dark:border-gray-400 pb-2">Skills</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                 <div>
                     <h3 class="text-xl font-semibold">Languages</h3>
-                    <p class="mt-2">Java (SE/EE), PHP (Laravel, Symfony), TypeScript, SQL, Shell</p>
+                    <p class="mt-2">Java (8, 17, 21, 25) · SQL · TypeScript / JavaScript · PHP · Dart</p>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold">Java Expertise</h3>
-                    <p class="mt-2">Spring Boot, Spring MVC, JPA, Hibernate, ISO 8583, SOAP/REST, RabbitMQ</p>
+                    <h3 class="text-xl font-semibold">Backend</h3>
+                    <p class="mt-2">Spring Boot 2.3 → 3.5 · Spring Data JPA / Hibernate · Spring Security (JWT, OAuth2) · Spring Batch · Spring Cloud Config · Flyway · MapStruct · Maven</p>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold">Payments & Integrations</h3>
-                    <p class="mt-2">Paynow, Stripe, Bank Switches, ISO 8583, SOAP/REST APIs, Webhooks, gRPC, JSON, XML</p>
+                    <h3 class="text-xl font-semibold">Payments &amp; banking</h3>
+                    <p class="mt-2">ISO 8583 (jPOS) · ISO 20022 · POS/ATM acquiring and issuing · reversals · settlement and reconciliation · RTGS straight-through processing · Finastra Fusion Essence · Temenos T24 · Apache Fineract · ESB mediation</p>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold">Event Streaming</h3>
-                    <p class="mt-2">Apache Kafka, Redis (Pub/Sub), MQTT</p>
+                    <h3 class="text-xl font-semibold">Integrations</h3>
+                    <p class="mt-2">Stripe · GoCardless · PSD2 open banking (ABN AMRO) · SAP · Microsoft Dynamics 365 · Sage · WhatsApp Business · Vonage · Paynow</p>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold">DevOps & Infra</h3>
-                    <p class="mt-2">Docker, Kubernetes (EKS), Jenkins, GitHub Actions, NGINX, AWS (EC2/S3/Lambda/EKS)</p>
+                    <h3 class="text-xl font-semibold">Lending &amp; credit</h3>
+                    <p class="mt-2">Origination workflows · credit scoring and affordability · bureau, AML, sanctions and PEP screening · maker-checker and delegated approval limits · disbursement · repayments, arrears and collections</p>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold">Databases</h3>
-                    <p class="mt-2">PostgreSQL, MySQL, Redis, MongoDB, MS SQL, Oracle</p>
+                    <h3 class="text-xl font-semibold">Data &amp; platform</h3>
+                    <p class="mt-2">PostgreSQL · MySQL · Redis · Hazelcast · RabbitMQ · Kafka · Keycloak · Docker · Kubernetes (EKS) · AWS · Nginx · GitLab CI · Prometheus · Grafana</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold">Testing &amp; AI</h3>
+                    <p class="mt-2">JUnit 5 · Mockito · Testcontainers · Playwright · Claude Code (hooks, skills, subagents) · spec-driven development · context engineering · agent guardrails</p>
                 </div>
                 <div>
                     <h3 class="text-xl font-semibold">Frontend</h3>
-                    <p class="mt-2">ReactJS, SCSS, CSS Modules</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold">Monitoring & Practices</h3>
-                    <p class="mt-2">Prometheus, Grafana, Sentry, Microservices, Clean Code, SOLID, Agile, CI/CD</p>
+                    <p class="mt-2">Next.js / React · TanStack Query · Tailwind · CakePHP 5 · Laravel · Flutter</p>
                 </div>
             </div>
         </section>
 
-        <!-- Tech Spotlight: Java & Spring Boot -->
-        <section id="tech-spotlight" class="my-12">
-            <h2 class="text-3xl font-bold border-b-2 border-gray-700 dark:border-gray-400 pb-2">Tech Spotlight: Java & Spring Boot</h2>
-            <p class="mt-4 text-lg">
-                I build high-throughput microservices using <strong>Spring Boot</strong> and <strong>Apache Kafka</strong> for event-driven architectures, integrating with payment systems like <strong>ISO 8583</strong>. Below is a sample REST API for a payment gateway:
+        <!-- Experience -->
+        <section id="experience" class="my-12 scroll-mt-20">
+            <h2 class="text-3xl font-bold border-b-2 border-gray-700 dark:border-gray-400 pb-2">Experience</h2>
+            <div class="mt-6 space-y-10">
+                <article>
+                    <h3 class="text-xl font-bold">Senior Software Developer</h3>
+                    <p class="text-gray-600 dark:text-gray-400">National Building Society (retail bank) · Harare, Zimbabwe · 2025 – present</p>
+                    <p class="mt-3">Second-in-charge of the ICT Systems Development section. Senior engineer across the bank's Java estate — loan origination and servicing, the ISO 8583 payment switch, core banking integration and financial batch processing — with three services taken from empty repository to production.</p>
+                    <ul class="list-disc pl-5 mt-3 space-y-2">
+                        <li><strong>Digital lending delivery:</strong> lead delivery of the Digital Loan Originator, the bank's live digital lending channel, in versioned releases; rebuilt repayment collection on core banking balance holds; resolved a production disbursement incident and wrote the team's deployment runbooks.</li>
+                        <li><strong>Credit origination platform:</strong> largest backend contributor — metadata-configured loan products, workflow stages with delegated approval limits, maker-checker with an append-only audit trail, and bureau, AML/sanctions and PEP screening.</li>
+                        <li><strong>Core banking posting and servicing:</strong> designed the provider abstraction that opens loan accounts, posts balanced entries and reverses through the core's own reversal call; built repayment schedules, allocation and arrears classification.</li>
+                        <li><strong>Batch processing platform (sole author):</strong> salary funds movement, RTGS straight-through processing and postings into two core banking systems, designed so a timed-out leg cannot double-pay.</li>
+                        <li><strong>ISO 8583 payment switch:</strong> root-caused a two-year-old transaction-ID collision that declined valid card payments, and replaced it with a collision-free design proven by concurrency, monotonicity and rollover tests.</li>
+                        <li><strong>School fee collections (sole author):</strong> branch cash and card payments routed through the core banking ESB into third-party school systems, with idempotent posting.</li>
+                    </ul>
+                </article>
+
+                <article>
+                    <h3 class="text-xl font-bold">Software Engineer (contract)</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Staxo Group · United Kingdom, Remote · 2023 – 2025</p>
+                    <p class="mt-3">UK digital agency. Engineered full-stack applications end to end on a microservices architecture: Java 17 / Spring Boot backends exposing RESTful APIs, with React / Next.js front ends.</p>
+                    <ul class="list-disc pl-5 mt-3 space-y-2">
+                        <li><strong>Payment gateway integration:</strong> Stripe and GoCardless — card payments, Direct Debit mandates and recurring collections, with webhook-driven payment-state handling.</li>
+                        <li><strong>Third-party integrations:</strong> Sage ERP for accounting data sync; WhatsApp and Vonage messaging APIs for transactional notifications.</li>
+                        <li><strong>Cloud-native delivery:</strong> containerised services with Docker, deployed and horizontally scaled on Kubernetes clusters on AWS; observability through Prometheus metrics and Grafana dashboards.</li>
+                    </ul>
+                </article>
+
+                <article>
+                    <h3 class="text-xl font-bold">Software Developer → Software Engineer</h3>
+                    <p class="text-gray-600 dark:text-gray-400">ICT Dienstenlandkaart · Netherlands, Remote · April 2018 – June 2024 · promoted February 2021</p>
+                    <p class="mt-3">Built and maintained the company's Java microservice platform for payments, IT audit and GDPR compliance, connecting government and enterprise service directories.</p>
+                    <ul class="list-disc pl-5 mt-3 space-y-2">
+                        <li><strong>Open banking:</strong> connected the platform to ABN AMRO's PSD2 APIs over REST, secured with OAuth 2.0 and mutual TLS, for SEPA payment initiation, account information and transaction monitoring, with reconciliation against platform records.</li>
+                        <li><strong>Payments and billing:</strong> built recurring billing on Stripe (cards) and GoCardless (Direct Debit), with idempotent webhook processing and transaction reconciliation.</li>
+                        <li><strong>ERP and messaging:</strong> synchronised financial data, invoicing and accounting workflows with SAP ERP and Microsoft Dynamics 365; automated customer messaging over the WhatsApp Business and Vonage APIs.</li>
+                        <li><strong>Platform and delivery:</strong> built the CI/CD pipelines for Docker-based microservices on Amazon EKS, designed for fault tolerance and horizontal scaling, with Prometheus and Grafana monitoring.</li>
+                    </ul>
+                </article>
+
+                <article>
+                    <h3 class="text-xl font-bold">Junior Software Engineer</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Inclusive Financial Services · Zimbabwe · 2017 – 2018</p>
+                    <ul class="list-disc pl-5 mt-3 space-y-2">
+                        <li>Built SOAP and REST integrations to Temenos T24 core banking and Pastel accounting, and connected the Musoni microfinance platform to payroll-deduction services (SSB, Ndasenda) and credit bureaus (FCB, CRB); handled releases and maintenance.</li>
+                    </ul>
+                </article>
+
+                <article>
+                    <h3 class="text-xl font-bold">ICT Intern → Junior Developer</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Civil Aviation Authority of Zimbabwe · 2014 – 2016</p>
+                    <ul class="list-disc pl-5 mt-3 space-y-2">
+                        <li>Built internal Java and Oracle applications: a funds-request system, a payments cart, Paynow payment-gateway integration and ERP integrations; user support.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="my-12 scroll-mt-20">
+            <h2 class="text-3xl font-bold border-b-2 border-gray-700 dark:border-gray-400 pb-2">Projects</h2>
+            <div class="flex flex-wrap gap-2 mt-6 mb-6" role="group" aria-label="Filter projects">
+                <button type="button" data-filter="all" aria-pressed="true" class="filter-btn px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 transition">All</button>
+                <button type="button" data-filter="Payments" aria-pressed="false" class="filter-btn px-4 py-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition">Payments</button>
+                <button type="button" data-filter="Lending" aria-pressed="false" class="filter-btn px-4 py-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition">Lending</button>
+                <button type="button" data-filter="Integrations" aria-pressed="false" class="filter-btn px-4 py-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition">Integrations</button>
+                <button type="button" data-filter="AI" aria-pressed="false" class="filter-btn px-4 py-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition">AI</button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Lending,Payments">
+                    <p class="text-sm text-gray-600 dark:text-gray-400">National Building Society · in production</p>
+                    <h3 class="text-xl font-bold mt-1">Digital Loan Originator</h3>
+                    <p class="mt-2">The bank's live digital lending channel: product lifecycle under maker-checker, intake and decisioning, disbursement through the core banking ESB, repayment collection on balance holds, accruals and loan book reporting.</p>
+                    <p class="mt-3 text-sm text-gray-600 dark:text-gray-400">Java 17 · Spring Boot 3.3 · Spring Batch · MySQL · Hazelcast · React</p>
+                </div>
+
+                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Lending">
+                    <p class="text-sm text-gray-600 dark:text-gray-400">National Building Society · largest backend contributor</p>
+                    <h3 class="text-xl font-bold mt-1">Credit Origination Platform</h3>
+                    <p class="mt-2">Multi-product lending for personal, pensioner and corporate loans. Products are configured as metadata, not code, and every workflow transition is checked against role, branch, approval limit and maker before an append-only audit entry seals it.</p>
+                    <p class="mt-3 text-sm text-gray-600 dark:text-gray-400">Java 21 · Spring Boot 3.3 · MySQL · Flyway · MapStruct · Next.js</p>
+                </div>
+
+                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Payments">
+                    <p class="text-sm text-gray-600 dark:text-gray-400">National Building Society · sole author</p>
+                    <h3 class="text-xl font-bold mt-1">Batch Processing Platform</h3>
+                    <p class="mt-2">Scheduled financial batches in production: salary prefunding and funds movement, RTGS straight-through processing, account closures and postings into two core banking systems. Retry and refund are designed so a timed-out leg can never pay twice.</p>
+                    <p class="mt-3 text-sm text-gray-600 dark:text-gray-400">Java 25 · Spring Boot 3.5 · PostgreSQL · RabbitMQ · Redis · Docker</p>
+                </div>
+
+                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Payments">
+                    <p class="text-sm text-gray-600 dark:text-gray-400">National Building Society</p>
+                    <h3 class="text-xl font-bold mt-1">ISO 8583 Payment Switch</h3>
+                    <p class="mt-2">GL routing for ATM and POS charges, reversal matching and terminal account sweeps. Root-caused a two-year-old transaction-ID collision and replaced the generator with a collision-free design, proven by concurrency, monotonicity and rollover tests.</p>
+                    <p class="mt-3 text-sm text-gray-600 dark:text-gray-400">Java · jPOS · ISO 8583</p>
+                </div>
+
+                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Payments,Integrations">
+                    <p class="text-sm text-gray-600 dark:text-gray-400">ICT Dienstenlandkaart</p>
+                    <h3 class="text-xl font-bold mt-1">Open Banking &amp; Payment Integrations</h3>
+                    <p class="mt-2">ABN AMRO PSD2 APIs with OAuth 2.0 and mutual TLS for SEPA payment initiation and account information, recurring billing on Stripe and GoCardless, and financial data sync with SAP and Microsoft Dynamics 365.</p>
+                    <p class="mt-3 text-sm text-gray-600 dark:text-gray-400">Java microservices · Docker · Amazon EKS · Prometheus · Grafana</p>
+                </div>
+
+                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="AI">
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Personal project · in daily use</p>
+                    <h3 class="text-xl font-bold mt-1">ai-context</h3>
+                    <p class="mt-2">Shared memory and guardrails for coding agents: knowledge loaded on demand by hooks, compare-and-swap writes with a hash-linked audit journal, secret and card-number scanning, and planner and reviewer subagents that must pass work against written acceptance criteria.</p>
+                    <p class="mt-3 text-sm text-gray-600 dark:text-gray-400">Python · Claude Code hooks, skills and subagents · GitHub Actions · 48 automated tests</p>
+                </div>
+
+                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Lending">
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Personal project · in progress</p>
+                    <h3 class="text-xl font-bold mt-1">Microfinance Platform on Apache Fineract</h3>
+                    <p class="mt-2">A multi-tenant microfinance platform built on Apache Fineract: service decomposition, Keycloak identity and credit bureau integration.</p>
+                    <p class="mt-3 text-sm text-gray-600 dark:text-gray-400">Java · Apache Fineract · Keycloak</p>
+                </div>
+            </div>
+            <p class="mt-6 text-sm text-gray-600 dark:text-gray-400">Employer systems are private. I'm happy to walk through their architecture and trade-offs in an interview.</p>
+        </section>
+
+        <!-- Code -->
+        <section id="code" class="my-12 scroll-mt-20">
+            <h2 class="text-3xl font-bold border-b-2 border-gray-700 dark:border-gray-400 pb-2">How I build a payment endpoint</h2>
+            <p class="mt-4 text-lg leading-relaxed">
+                Money-movement code has to survive retries, timeouts and crashes. This sample shows the pattern I use: an <strong>idempotency key</strong> backed by a unique constraint, and the event written to an <strong>outbox</strong> table in the same transaction. A retried request returns the original result instead of paying twice, a concurrent duplicate fails on the constraint, and a crash can't lose the event.
             </p>
-            <pre class="bg-gray-800 text-white p-4 rounded-lg mt-4 overflow-x-auto">
-                <code>
-package com.timothymoswa.paymentgateway;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.web.bind.annotation.*;
-
-@RestController
+            <pre class="bg-gray-800 dark:bg-gray-950 text-gray-100 p-4 rounded-lg mt-4 overflow-x-auto text-sm"><code>@RestController
 @RequestMapping("/api/payments")
-public class PaymentController {
+class PaymentController {
 
-    @Autowired
-    private PaymentService paymentService;
-    @Autowired
-    private KafkaTemplate<String, Payment> kafkaTemplate;
+    private final PaymentService payments;
 
-    @PostMapping("/process")
-    public Payment processPayment(@RequestBody PaymentRequest request) {
-        Payment payment = paymentService.process(request);
-        kafkaTemplate.send("payment-events", payment);
-        return payment;
+    PaymentController(PaymentService payments) {
+        this.payments = payments;
     }
 
-    @GetMapping("/{id}")
-    public Payment getPayment(@PathVariable String id) {
-        return paymentService.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Payment not found"));
+    @PostMapping
+    ResponseEntity&lt;PaymentView&gt; submit(@RequestHeader("Idempotency-Key") String key,
+                                       @Valid @RequestBody PaymentRequest request) {
+        return switch (payments.submit(key, request)) {
+            case Submitted(PaymentView view) -&gt; ResponseEntity.status(HttpStatus.CREATED).body(view);
+            case Replayed(PaymentView view)  -&gt; ResponseEntity.ok(view);
+        };
     }
 }
-                </code>
-            </pre>
-            <p class="mt-4 text-lg">
-                This endpoint demonstrates <strong>Spring Boot</strong> for RESTful services, <strong>Kafka</strong> for event streaming, and secure payment processing, aligned with my expertise in FinTech integrations.
+
+@Service
+class PaymentService {
+
+    private final PaymentRepository repository;   // unique constraint on idempotency_key
+    private final OutboxRepository outbox;
+
+    PaymentService(PaymentRepository repository, OutboxRepository outbox) {
+        this.repository = repository;
+        this.outbox = outbox;
+    }
+
+    @Transactional
+    SubmitResult submit(String key, PaymentRequest request) {
+        return repository.findByIdempotencyKey(key)
+                .&lt;SubmitResult&gt;map(existing -&gt; new Replayed(existing.view()))
+                .orElseGet(() -&gt; {
+                    Payment payment = repository.save(Payment.pending(key, request));
+                    outbox.save(OutboxEvent.of("payment.submitted", payment.id()));
+                    return new Submitted(payment.view());
+                });
+    }
+}
+
+sealed interface SubmitResult permits Submitted, Replayed {}
+record Submitted(PaymentView view) implements SubmitResult {}
+record Replayed(PaymentView view) implements SubmitResult {}</code></pre>
+            <p class="mt-4 text-lg leading-relaxed">
+                Java 21 sealed types and record patterns make the controller's switch exhaustive: add a new outcome and the compiler points to every place that must handle it.
             </p>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="my-12">
-            <h2 class="text-3xl font-bold border-b-2 border-gray-700 dark:border-gray-400 pb-2">Notable Projects</h2>
-            <div class="flex flex-wrap gap-2 mb-4">
-                <button onclick="filterProjects('all')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">All</button>
-                <button onclick="filterProjects('Java')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Java</button>
-                <button onclick="filterProjects('Spring')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Spring</button>
-                <button onclick="filterProjects('Kafka')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Kafka</button>
-                <button onclick="filterProjects('ReactJS')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">ReactJS</button>
-            </div>
-            <div class="mt-6 space-y-8">
-                <!-- Financial Service Systems -->
-                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Java,Spring,Kafka,ReactJS">
-                    <h3 class="text-xl font-bold">Financial Service Systems</h3>
-                    <p class="text-gray-700 dark:text-gray-300 mt-2">
-                        A secure FinTech platform integrating with banks using <strong>ISO 8583</strong>, <strong>Paynow</strong>, and <strong>Stripe</strong>.
-                    </p>
-                    <ul class="list-disc list-inside mt-2">
-                        <li><strong>Frontend</strong>: ReactJS, SCSS, JWT authentication.</li>
-                        <li><strong>Backend</strong>: Spring Boot microservices, Kafka, PostgreSQL, Redis.</li>
-                        <li><strong>Impact</strong>: Processed millions of transactions with 99.9% uptime.</li>
-                    </ul>
-                    <div class="mt-4">
-                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Code (Request Access)</a>
-                    </div>
-                </div>
-
-                <!-- Core Banking Integrations -->
-                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Java,Spring,Kafka">
-                    <h3 class="text-xl font-bold">Core Banking Integrations</h3>
-                    <p class="text-gray-700 dark:text-gray-300 mt-2">
-                        Integrated core banking systems with <strong>ISO 8583</strong> and <strong>SOAP/REST APIs</strong> for transaction processing.
-                    </p>
-                    <ul class="list-disc list-inside mt-2">
-                        <li><strong>Tech Stack</strong>: Spring Boot, Kafka, Oracle, RabbitMQ.</li>
-                        <li><strong>Features</strong>: Real-time transaction processing, compliance reporting.</li>
-                        <li><strong>Deployment</strong>: Docker, Kubernetes, AWS EKS.</li>
-                    </ul>
-                    <div class="mt-4">
-                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Code (Request Access)</a>
-                    </div>
-                </div>
-
-                <!-- Payment Gateway -->
-                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Java,Spring,Kafka,ReactJS">
-                    <h3 class="text-xl font-bold">Payment Gateway</h3>
-                    <p class="text-gray-700 dark:text-gray-300 mt-2">
-                        A scalable payment gateway supporting <strong>Paynow</strong>, <strong>Stripe</strong>, and bank switches.
-                    </p>
-                    <ul class="list-disc list-inside mt-2">
-                        <li><strong>Frontend</strong>: ReactJS, CSS Modules.</li>
-                        <li><strong>Backend</strong>: Spring Boot, Kafka, MongoDB, Redis.</li>
-                        <li><strong>Impact</strong>: Reduced transaction latency by 40%.</li>
-                    </ul>
-                    <div class="mt-4">
-                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Code (Request Access)</a>
-                    </div>
-                </div>
-
-                <!-- Distributed POS System -->
-                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Java,Spring,Kafka">
-                    <h3 class="text-xl font-bold">Distributed POS System</h3>
-                    <p class="text-gray-700 dark:text-gray-300 mt-2">
-                        A real-time POS system for retail and agriculture using <strong>Spring Boot</strong> and <strong>Kafka</strong>.
-                    </p>
-                    <ul class="list-disc list-inside mt-2">
-                        <li><strong>Tech Stack</strong>: Spring Boot, Kafka, PostgreSQL, Redis.</li>
-                        <li><strong>Features</strong>: Real-time inventory, transaction syncing.</li>
-                        <li><strong>Deployment</strong>: AWS EC2, Docker, Kubernetes.</li>
-                    </ul>
-                    <div class="mt-4">
-                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Code (Request Access)</a>
-                    </div>
-                </div>
-
-                <!-- ERP Integrations -->
-                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="Java,Spring,Kafka">
-                    <h3 class="text-xl font-bold">ERP Integrations</h3>
-                    <p class="text-gray-700 dark:text-gray-300 mt-2">
-                        Integrated <strong>Sage</strong>, <strong>Syspro</strong>, and <strong>Palladium</strong> with <strong>Kafka</strong> pipelines.
-                    </p>
-                    <ul class="list-disc list-inside mt-2">
-                        <li><strong>Tech Stack</strong>: Spring Boot, REST APIs, Kafka, MySQL.</li>
-                        <li><strong>Features</strong>: Automated data syncing, reporting.</li>
-                        <li><strong>Deployment</strong>: AWS Lambda, Docker.</li>
-                    </ul>
-                    <div class="mt-4">
-                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Code (Request Access)</a>
-                    </div>
-                </div>
-
-                <!-- Admin Dashboards -->
-                <div class="project bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md" data-tags="ReactJS,Java,Spring">
-                    <h3 class="text-xl font-bold">Admin Dashboards</h3>
-                    <p class="text-gray-700 dark:text-gray-300 mt-2">
-                        Built admin panels for financial systems using <strong>ReactJS</strong> and <strong>Spring Boot</strong>.
-                    </p>
-                    <ul class="list-disc list-inside mt-2">
-                        <li><strong>Frontend</strong>: ReactJS, SCSS, Figma-aligned UX.</li>
-                        <li><strong>Backend</strong>: Spring Boot, PostgreSQL.</li>
-                        <li><strong>Impact</strong>: Improved operational efficiency by 30%.</li>
-                    </ul>
-                    <div class="mt-4">
-                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Code (Request Access)</a>
-                    </div>
-                </div>
-            </div>
-            <p class="text-red-500 dark:text-red-400 mt-4 text-sm">
-                Note: Most systems are internal, and access to code or live demos requires organizational approval.
-            </p>
-        </section>
-
-        <!-- Work Experience -->
-        <section id="work" class="my-12">
-            <h2 class="text-3xl font-bold border-b-2 border-gray-700 dark:border-gray-400 pb-2">Work Experience</h2>
-            <ul class="space-y-6 mt-6">
-                <li>
-                    <strong>Senior Software Engineer</strong> - Staxo Group (UK, Remote) | 2024 – Present
-                    <p class="text-gray-700 dark:text-gray-300">Architected FinTech microservices using <strong>Spring Boot</strong>, <strong>Kafka</strong>, and <strong>ReactJS</strong>, with deployments on <strong>AWS EKS</strong>.</p>
-                </li>
-                <li>
-                    <strong>Software Engineer</strong> - Dienstenlandkaart (Netherlands, Remote) | 2018 – 2024
-                    <p class="text-gray-700 dark:text-gray-300">Developed banking and logistics solutions with <strong>Spring Boot</strong>, <strong>Kafka</strong>, and <strong>ReactJS</strong>, containerized with <strong>Docker</strong>.</p>
-                </li>
-                <li>
-                    <strong>Backend Developer</strong> - Haltrade Distribution (Zimbabwe) | 2018 – 2024
-                    <p class="text-gray-700 dark:text-gray-300">Built financial systems with <strong>ISO 8583</strong>, <strong>Spring Boot</strong>, and <strong>Kafka</strong>, deployed on <strong>AWS</strong>.</p>
-                </li>
-                <li>
-                    <strong>Lead Software Engineer</strong> - Inclusive Financial Services (Zimbabwe) | 2017 – 2018
-                    <p class="text-gray-700 dark:text-gray-300">Led migration to <strong>Spring Boot</strong> microservices, integrated <strong>ISO 8583</strong> via SOAP APIs.</p>
-                </li>
-                <li>
-                    <strong>ICT Intern</strong> - Civil Aviation Authority of Zimbabwe | 2014 – 2016
-                    <p class="text-gray-700 dark:text-gray-300">Developed Java/PHP applications, managed <strong>MS SQL</strong> and <strong>Oracle</strong> databases.</p>
-                </li>
-            </ul>
         </section>
 
         <!-- Contact -->
-        <section id="contact" class="my-12">
-            <h2 class="text-3xl font-bold border-b-2 border-gray-700 dark:border-gray-400 pb-2">Contact Me</h2>
+        <section id="contact" class="my-12 scroll-mt-20">
+            <h2 class="text-3xl font-bold border-b-2 border-gray-700 dark:border-gray-400 pb-2">Contact</h2>
             <p class="mt-4">Email: <a href="mailto:timothymoswa@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline">timothymoswa@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/timothy-moswa-b63944105/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Timothy Moswa</a></p>
-            <p>GitHub: <a href="https://github.com/tmoswa" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">github.com/tmoswa</a></p>
-            <p>Portfolio: <a href="https://tmoswa.github.io/java-portfolio/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">tmoswa.github.io/java-portfolio</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/timothy-moswa-b63944105/" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:underline">linkedin.com/in/timothy-moswa-b63944105</a></p>
+            <p>GitHub: <a href="https://github.com/tmoswa" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:underline">github.com/tmoswa</a></p>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 dark:bg-gray-700 text-white text-center p-4">
-        © 2025 Timothy Moswa. All rights reserved.
+    <footer class="bg-gray-800 dark:bg-gray-950 text-white text-center p-4">
+        © <span id="year">2026</span> Timothy Moswa
     </footer>
 
-    <!-- JavaScript for Project Filtering -->
     <script>
-        function filterProjects(tag) {
-            const projects = document.querySelectorAll('.project');
-            projects.forEach(project => {
-                const tags = project.getAttribute('data-tags').split(',');
-                project.style.display = tag === 'all' || tags.includes(tag) ? 'block' : 'none';
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const activeClasses = ['bg-blue-600', 'text-white', 'hover:bg-blue-700'];
+        const idleClasses = ['bg-gray-200', 'dark:bg-gray-700', 'hover:bg-gray-300', 'dark:hover:bg-gray-600'];
+
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const tag = button.dataset.filter;
+                document.querySelectorAll('.project').forEach(project => {
+                    const tags = project.dataset.tags.split(',');
+                    project.style.display = tag === 'all' || tags.includes(tag) ? '' : 'none';
+                });
+                document.querySelectorAll('.filter-btn').forEach(other => {
+                    const isActive = other === button;
+                    other.setAttribute('aria-pressed', String(isActive));
+                    other.classList.remove(...(isActive ? idleClasses : activeClasses));
+                    other.classList.add(...(isActive ? activeClasses : idleClasses));
+                });
             });
-        }
+        });
     </script>
 </body>
 </html>
